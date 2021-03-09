@@ -1,0 +1,134 @@
+@font-face {
+    font-family: "FF Mark";
+    src: url(../fonts/FFMark.ttf)
+}
+
+* {
+    user-select: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#topbar-wrapper {
+    top: 0;
+    left: 0;
+    margin: 0;
+    border: 0;
+    width: 100%;
+}
+
+#topbar-wrapper.stickybar {
+    position: fixed;
+    z-index: 1;
+}
+
+#topbar {
+    width: 100%;
+    height: 80px;
+    background-color: #111111;
+    border-bottom: 2px solid rgba(51, 51, 51, 0.25);
+    position: relative;
+    z-index: 2;
+    display: flex;
+}
+
+#topbar-left-wrapper {
+    height: 80px;
+    padding-top: 15px;
+    padding-right: 30px;
+}
+
+.first-logo {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    margin-left: 32px;
+    width: 75px;
+}
+
+.first-logo-img {
+    width: 160px;
+    height: 160px;
+    background: url(../img/fistsprite.png) 0 -2400px no-repeat;
+    transform: scale(0.33);
+    position: absolute;
+    top: -55px;
+    left: -55px;
+}
+
+.first-logo-arrow {
+    margin-top: 22px;
+    margin-bottom: 0;
+    margin-left: 5px;
+    position: absolute;
+    top: 3px;
+    left: 51px;
+}
+
+.logo-separator {
+    margin-left: 0;
+    margin-right: 32px;
+    margin-top: 10px;
+    border-left: 2px solid #7E7E7E;
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+    opacity: 0.4;
+}
+
+.second-logo {
+    display: inline-block;
+    height: 50px;
+}
+
+.second-logo-img {
+    min-width: 38px;
+    display: block;
+}
+
+.second-logo-svg {
+    margin-top: 9px;
+    display: block;
+}
+
+#topbar-middle-wrapper {
+    height: 80px;
+    flex: 1;
+}
+
+#navbar {
+    height: 80px;
+    max-width: 100%;
+    margin-right: 0;
+}
+
+.navbar-item {
+    display: inline-block;
+    position: relative;
+    height: 80px;
+    text-align: center;
+}
+
+.navbar-item-text {
+    font-family: "FF Mark";
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 76px;
+    margin: 0 0.85em;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 2px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #F9F9F9;
+    display: inline-block;
+}
+
+.navbar-item-arrow {
+    display: inline-block;
+    margin-bottom: 1px;
+    margin-left: 5px;
+}
