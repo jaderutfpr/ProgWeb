@@ -132,3 +132,63 @@ body {
     margin-bottom: 1px;
     margin-left: 5px;
 }
+
+.navbar-item-linkarrow {
+    display: inline-block;
+    margin-left: 4px;
+}
+
+#topbar-right-wrapper {
+    padding-right: 16px;
+    right: 0px;
+    bottom: 0;
+    top: 0;
+}
+.lang-logo {
+    margin: 0px 12px;
+    float: left;
+    color: #F9F9F9;
+    padding: 0 8px;
+    position: relative;
+}
+
+.lang-logo-img {
+    margin-top: 32px;
+    display: inline-block;
+}
+
+.login-cadastro {
+    float: left;
+    height: 80px;
+}
+
+.login-cadastro-text {
+    font-family: "FF Mark";
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 20px 15px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #F9F9F9;
+    padding: 12px 0;
+}
+
+.cadastro-button {
+    background-color: #0BC4E2;
+    text-align: center;
+    border-radius: 2px;
+    line-height: 16px;
+    height: 41px;
+    position: relative;
+    min-width: 129px;
+    max-width: 220px;
+    z-index: 0;
+    text-overflow: ellipsis;
+}
+
+/*Teste*/
+
+main {
+    height: 1800px;
+}
