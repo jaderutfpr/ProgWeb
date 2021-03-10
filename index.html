@@ -78,6 +78,46 @@
                 </div>
             </div>
         </header>
-        <main></main>
+        <main>
+            <div id="main-wrapper">
+                <div>
+                    <section class="video-box">
+                        <div class="background-wrapper">
+                            <div class="background-video">
+                                <video style="object-fit: cover; object-position: center top" autoplay playsinline loop muted class="background-video-play">
+                                    <source src="vid/blurred.webm" type="video/webm"></source>
+                                    <source src="vid/blurred.mp4" type="video/mp4"></source>
+                                </video>
+                            </div>
+                        </div>
+                        <div class="foreground-wrapper">
+                            <div class="foreground-video-wrapper">
+                                <div class="foreground-video">
+                                    <video style="object-fit:cover; object-position:center center" autoplay playsinline loop muted class="foreground-video-play">
+                                        <source src="vid/normal.webm" type="video/webm"></source>
+                                        <source src="vid/normal.mp4" type="video/mp4"></source>
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="foreground-content">
+                                <div class="foreground-logo">
+                                    <img src="img/1200-logo.png" srcset="img/800-logo.png 800w, img/1200-logo.png 1200w" sizes="(max-width: 599px) 80vw, 40vw" class="foreground-logo-img">
+                                </div>
+                                <div class="foreground-button">
+                                    <a text="Jogue de graça" class="foreground-button-text">
+                                        <span class="foreground-button-inner">
+                                            <span class="foreground-button-inner-background"></span>
+                                            <span class="foreground-button-inner-text">Jogue de Graça</span>
+                                        </span>
+                                        <div class="foreground-button-container"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div style="height: 1800px;"></div>
+            </div>
+        </main>
     </body>
 </html>
