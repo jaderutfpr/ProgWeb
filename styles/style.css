@@ -475,9 +475,50 @@ body {
     height: 100%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 599px) {
     .news-box {
         margin-top: -120px;
         padding-top: 120px;
     }
 }
+
+/*Teste com o menu "Mais"*/
+
+#more.navbar-item {
+    display: none;
+}
+
+@media screen and (max-width: 1610px) {
+    #support {
+        display: none;
+    }
+    #more.navbar-item{
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 1588px) {
+    #universe {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1466px) {
+    #esports {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1351px) {
+    #discover {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1222px) {
+    #patch-notes {
+        display: none;
+    }
+}
+
+/*Teste com o menu "Mais"*/
