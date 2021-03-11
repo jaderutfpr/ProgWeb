@@ -521,4 +521,10 @@ body {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    #more.navbar-item {
+        display: none;
+    }
+}
+
 /*Teste com o menu "Mais"*/
