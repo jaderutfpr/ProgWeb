@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Sentim-Test</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <h1>Teste Sentim-API</h1>
+        <p>Insira uma texto para realizar o teste do Sentim-API</p>
+        <p>O texto deve ser em inglês.</p>
+        <input type = "text" name = "Phrase" value = "">
+        <button>Sentim</button>
+        <p id = "error"></p>
+        <div id = "text"></div>
+        <div id = "textbits"></div>
+        <script type = "text/javascript" charset="UTF-8">
+            document.querySelector('button').addEventListener('click', function() {
+
+                var query = document.querySelector('input').value;
+                var container = document.querySelector('body');
+                var p = document.getElementById('error');
+                var text = document.getElementById('text');
+                var textbits = document.getElementById('textbits');
+
+                if(query.length < 10) {
+                    p.innerHTML = 'A entrada deve conter pelo menos 10 caracteres.'
+                    container.appendChild(p);
+                }
+
+                else {
+
+                    p.innerHTML = ' ';
+                    text.innerHTML = ' ';
+                    textbits.innerHTML = ' ';
+                    axios.post('https://sentim-api.herokuapp.com/api/v1/', {
+                        "text": query
+                    }, {
+                        headers: {
+                            Accept: "application/json", "Content-Type": "application/json"
+                        }
+                    }).then(function(response) {
+                        var data = response.data;
+                        console.log(data);
+
+                        var fsentence = document.createElement('p');
+                        fsentence.innerHTML = "Frase completa: " + query;
+                        text.appendChild(fsentence);
+
+                        var fpolarity = document.createElement('p');
+                        var ftype = document.createElement('p');
+                        fpolarity.innerHTML = "Polaridade resultante: " + data.result.polarity;
+                        ftype.innerHTML = "Tipo resultante: " + data.result.type;
+                        textbits.appendChild(fpolarity);
+                        textbits.appendChild(ftype);
+
+                        for(var i = 0; i < data.sentences.length; i++) {
+
+                            var sentence = document.createElement('p');
+                            var polarity = document.createElement('p');
+                            var type = document.createElement('p');
+
+                            sentence.innerHTML = "Frase " + (i+1) + ": " + data.sentences[i].sentence;
+                            polarity.innerHTML = "Polaridade: " + data.sentences[i].sentiment.polarity;
+                            type.innerHTML = "Tipo: " + data.sentences[i].sentiment.type;
+
+                            textbits.appendChild(sentence);
+                            textbits.appendChild(polarity);
+                            textbits.appendChild(type);
+
+                        }
+
+                    }).catch(function(error) {
+                        console.log(error);
+                    });
+
+                }
+
+            });
+        </script>
+    </body>
+</html>
