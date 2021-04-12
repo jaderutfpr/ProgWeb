@@ -528,3 +528,58 @@ body {
 }
 
 /*Teste com o menu "Mais"*/
+
+.wrapper-sentim {
+    flex: 1;
+}
+
+.title-wrapper-sentim {
+    flex: 1;
+}
+
+.title-sentim {
+    font-family: "FF Mark";
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.subtitle-sentim {
+    text-align: center;
+}
+
+.submit-wrapper-sentim {
+    flex: 1;
+    justify-content: center;
+}
+
+.input-sentim {
+    display: block;
+    margin: auto;
+    height: 150px;
+    width: 300px;
+}
+
+.button-sentim {
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.errortext-sentim {
+    color: red;
+    text-align: center;
+}
+
+.apireturn-sentim {
+    text-align: justify;
+    padding-bottom: 25px;
+    background-color: #f7f7f7;
+}
+
+.test-sentim {
+    margin: 0 auto;
+    width: 30em;
+    padding-left: 15px;
+    padding-right: 15px;
+}
