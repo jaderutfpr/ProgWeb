@@ -8,6 +8,7 @@
         <title>League of Legends</title>
         <link rel="icon" href="img/favicon.ico">
         <link rel="stylesheet" href="styles/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
         <header>
@@ -105,7 +106,7 @@
                             </span>
                         </div>
                         <div id="login" class="login-cadastro">
-                            <span class="login-cadastro-text">Iniciar sessão</span>
+                            <span id="login--button" class="login-cadastro-text"></span>
                         </div>
                         <div id="cadastro" class="login-cadastro">
                             <span class="login-cadastro-text cadastro-button">Jogue agora</span>
@@ -153,9 +154,29 @@
                     </section>
                 </div>
                 <div>
-                    <section class="news-box"></section>
+                    <section class = "news-box">
+                        <div id = "sentim" class = "wrapper-sentim-hidden">
+                            <div class = "title-wrapper-sentim">
+                                <h1 class = "title-sentim">Sentim-API</h1>
+                                <p class = "subtitle-sentim">Insira uma texto para realizar o teste do Sentim-API</p>
+                                <p class = "subtitle-sentim">O texto deve ser em inglês.</p>
+                            </div>
+                            <div class = "submit-wrapper-sentim">
+                                <textarea class = "input-sentim">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+                                <button class = "button-sentim">Sentim</button>
+                            </div>
+                            <div id = "error" class = "errortext-sentim"></div>
+                            <div class = "apireturn-sentim">
+                                <div class = "test-sentim">
+                                    <div id = "text"></div>
+                                    <div id = "textbits"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </main>
+        <script src="scripts/index.js"></script>
     </body>
 </html>
