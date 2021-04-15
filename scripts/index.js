@@ -4,6 +4,8 @@ if(localStorage.getItem("logged") !== null) {
     auth.href = "";
     auth.innerHTML = 'Sair';
     document.getElementById('login--button').appendChild(auth);
+    document.getElementById('auth').classList.remove('wrapper-auth');
+    document.getElementById('auth').classList.add('wrapper-auth-hidden');
     document.getElementById('sentim').classList.remove('wrapper-sentim-hidden');
     document.getElementById('sentim').classList.add('wrapper-sentim');
     document.getElementById('login--button').addEventListener('click', function(){
@@ -12,8 +14,7 @@ if(localStorage.getItem("logged") !== null) {
     });
 
 } else {
-    var auth = document.createElement('a');
-    auth.href = "auth.html";
+    var auth = document.createElement('span');
     auth.innerHTML = 'Iniciar Sessão';
     document.getElementById('login--button').appendChild(auth);
 }
