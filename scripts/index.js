@@ -1,3 +1,24 @@
+if(localStorage.getItem("logged") !== null) {
+
+    var auth = document.createElement('a');
+    auth.href = "";
+    auth.innerHTML = 'Sair';
+    document.getElementById('login--button').appendChild(auth);
+    document.getElementById('auth').classList.remove('wrapper-auth');
+    document.getElementById('auth').classList.add('wrapper-auth-hidden');
+    document.getElementById('sentim').classList.remove('wrapper-sentim-hidden');
+    document.getElementById('sentim').classList.add('wrapper-sentim');
+    document.getElementById('login--button').addEventListener('click', function(){
+        localStorage.removeItem('logged');
+        location.reload();
+    });
+
+} else {
+    var auth = document.createElement('span');
+    auth.innerHTML = 'Iniciar Sessão';
+    document.getElementById('login--button').appendChild(auth);
+}
+
 document.querySelector('button').addEventListener('click', function() {
 
     var query = document.querySelector('textarea').value;
