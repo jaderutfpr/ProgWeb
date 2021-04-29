@@ -90,7 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(response);
                 if(response.status === 200){
                     localStorage.setItem('logged', 1)
-                    window.location = 'index.html'
+                    //window.location = 'index.html'
+                    loggedIn();
                 }
             })
             .catch(function (error) {

@@ -593,3 +593,19 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.login--button--hidden {
+    display: none;
+}
+
+.logout--button--hidden {
+    display: none;
+}
+
+.login--button {
+    display: block;   
+}
+
+.logout--button {
+    display: block;
+}
