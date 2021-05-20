@@ -8,9 +8,11 @@ if(localStorage.getItem("logged") !== null) {
     
 }
 
-document.querySelector('button').addEventListener('click', function() {
+document.getElementById('input__api').addEventListener('click', function() {
 
-    var query = document.querySelector('textarea').value;
+    var query = document.getElementById('text__input__api').value;
+    var type = document.getElementById('type__input__api').value;
+    var polarity = document.getElementById('polarity__input__api').value;
     var error = document.getElementById('error');
     var text = document.getElementById('text');
     var textbits = document.getElementById('textbits');
@@ -29,51 +31,74 @@ document.querySelector('button').addEventListener('click', function() {
         error.innerHTML = ' ';
         text.innerHTML = ' ';
         textbits.innerHTML = ' ';
-        axios.post('https://sentim-api.herokuapp.com/api/v1/', {
-            "text": query
+        axios.post('http://localhost:3000/sentim', {
+            text: query,
+            type: type,
+            polarity: polarity,
+            token: localStorage.getItem('token')
         }, {
             headers: {
                 Accept: "application/json", "Content-Type": "application/json"
             }
         }).then(function(response) {
-            var data = response.data;
+            console.log(response)
+            if(response.status === 200){
+                errortext.innerHTML = 'Sucesso.'
+                error.appendChild(errortext);
+            }
+        }).catch(function(error) {
+            console.log(error);
+        });
 
-            for(var i = 0; i < data.sentences.length; i++) {
+    }
+
+});
+
+document.getElementById('search__api').addEventListener('click', function() {
+
+    var query = document.getElementById('text__search__api').value;
+    var error = document.getElementById('error');
+    var text = document.getElementById('text');
+    var textbits = document.getElementById('textbits');
+    var errortext = document.createElement('p');
+
+    if(query.length < 1) {
+        error.innerHTML = ' ';
+        text.innerHTML = ' ';
+        textbits.innerHTML = ' ';
+        errortext.innerHTML = 'A entrada deve conter pelo menos 1 caractere.'
+        error.appendChild(errortext);
+    }
+
+    else {
+
+        error.innerHTML = ' ';
+        text.innerHTML = ' ';
+        textbits.innerHTML = ' ';
+        axios.get('http://localhost:3000/sentim', {
+            params:{
+                text: query,
+                token: localStorage.getItem('token')
+            }
+        }).then(function(response) {
+            console.log(response)
+            data = response.data.data
+
+            for(var i = 0; i < data.length; i++) {
 
                 var sentence = document.createElement('p');
                 var polarity = document.createElement('p');
                 var type = document.createElement('p');
 
-                sentence.innerHTML = "Frase " + (i+1) + ": " + data.sentences[i].sentence;
-                polarity.innerHTML = "Polaridade: " + data.sentences[i].sentiment.polarity;
-
-                if(data.sentences[i].sentiment.type === 'negative'){
-                    type.innerHTML = "Tipo: Negativo"
-                }else if (data.sentences[i].sentiment.type === 'positive') {
-                    type.innerHTML = "Tipo: Positivo"
-                }else if (data.sentences[i].sentiment.type === 'neutral') {
-                    type.innerHTML = "Tipo: Neutro"
-                }
+                sentence.innerHTML = "Frase " + (i+1) + ": " + data[i].text;
+                polarity.innerHTML = "Polaridade: " + data[i].polarity;
+                type.innerHTML = "Tipo: " + data[i].type;
 
                 textbits.appendChild(sentence);
                 textbits.appendChild(polarity);
                 textbits.appendChild(type);
 
             }
-
-            // var fpolarity = document.createElement('p');
-            // var ftype = document.createElement('p');
-            // fpolarity.innerHTML = "Polaridade resultante: " + data.result.polarity;
-            // if(data.result.type === 'negative'){
-            //     ftype.innerHTML = "Tipo: Negativo"
-            // }else if (data.result.type === 'positive') {
-            //     ftype.innerHTML = "Tipo: Positivo"
-            // }else if (data.result.type === 'neutral') {
-            //     ftype.innerHTML = "Tipo: Neutro"
-            // }
-
-            // textbits.appendChild(fpolarity);
-            // textbits.appendChild(ftype);
 
         }).catch(function(error) {
             console.log(error);

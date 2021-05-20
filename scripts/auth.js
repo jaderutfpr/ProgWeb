@@ -82,23 +82,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(verifyEmail(email_field) && verifyPassword(password_field)){
 
-            axios.post('https://reqres.in/api/login', {
-                email: document.getElementById("email__login").value,
-                password: document.getElementById("password__login").value
+            axios.get('http://localhost:3000/users', {
+                params:{
+                    email: document.getElementById("email__login").value,
+                    password: document.getElementById("password__login").value
+                }
             })
             .then(function (response) {
                 console.log(response);
                 if(response.status === 200){
-                    localStorage.setItem('logged', 1)
-                    //window.location = 'index.html'
+                    token = response.data.data
+                    localStorage.setItem('token', token)
                     loggedIn();
+                }
+                if(response.status === 201){
+                    err.innerHTML = 'Usuário ou senha inválida!'
+                    document.getElementById('error--message__login').appendChild(err);
                 }
             })
             .catch(function (error) {
-                err.innerHTML = '';
-                console.log(error.response.data.error);
-                err.innerHTML = error.response.data.error;
-                document.getElementById('error--message__login').appendChild(err);
+                console.log(error)
             });
 
         }else if(!verifyEmail(email_field)){
@@ -124,22 +127,29 @@ document.addEventListener("DOMContentLoaded", () => {
         passwordcheck_field = document.getElementById("password__check__register");
         err.innerHTML = ''
         succ.innerHTML = ''
+        document.getElementById('error--message__register').appendChild(err);
+        document.getElementById('success--message__register').appendChild(succ);
+        
 
         if(verifyEmail(email_field) && verifyPassword(password_field) && checkPassword(password_field, passwordcheck_field)){
 
-            axios.post('https://reqres.in/api/register', {
+            axios.post('http://localhost:3000/users', {
                 email: email_field.value,
                 password: password_field.value
             })
             .then(function (response) {
-                console.log(response);
+                console.log(response)
                 if(response.status === 200){
                     succ.innerHTML = 'Registrado com sucesso!'
                     document.getElementById('success--message__register').appendChild(succ);
                 }
+                if(response.status === 201){
+                    err.innerHTML = 'Usuário já cadastrado!'
+                    document.getElementById('error--message__register').appendChild(err);
+                }
             })
             .catch(function (error) {
-                console.log(error.response);
+                console.log(error)
             });
 
         }else if(!verifyEmail(email_field)){
