@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(verifyEmail(email_field) && verifyPassword(password_field)){
 
-            axios.get('http://localhost:3000/users', {
+            axios.get('https://webapi-utfprcp-jader.herokuapp.com/users', {
                 params:{
                     email: document.getElementById("email__login").value,
                     password: document.getElementById("password__login").value
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(verifyEmail(email_field) && verifyPassword(password_field) && checkPassword(password_field, passwordcheck_field)){
 
-            axios.post('http://localhost:3000/users', {
+            axios.post('https://webapi-utfprcp-jader.herokuapp.com/users', {
                 email: email_field.value,
                 password: password_field.value
             })

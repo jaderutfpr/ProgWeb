@@ -31,7 +31,7 @@ document.getElementById('input__api').addEventListener('click', function() {
         error.innerHTML = ' ';
         text.innerHTML = ' ';
         textbits.innerHTML = ' ';
-        axios.post('http://localhost:3000/sentim', {
+        axios.post('https://webapi-utfprcp-jader.herokuapp.com/sentim', {
             text: query,
             type: type,
             polarity: polarity,
@@ -75,7 +75,7 @@ document.getElementById('search__api').addEventListener('click', function() {
         error.innerHTML = ' ';
         text.innerHTML = ' ';
         textbits.innerHTML = ' ';
-        axios.get('http://localhost:3000/sentim', {
+        axios.get('https://webapi-utfprcp-jader.herokuapp.com/sentim', {
             params:{
                 text: query,
                 token: localStorage.getItem('token')
